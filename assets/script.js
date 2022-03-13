@@ -33,6 +33,24 @@ function userPrompt() {
   }
 }
 
+// takes user input as parameter and creates a bank of characters to use in generator
+function characters(userChoices) {
+  var charBank = '';
+  if(userChoices.upper){
+    charBank += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  }
+  if(userChoices.lower){
+    charBank += 'abcdefghijklmnopqrstuvwxyz';
+  }
+  if(userChoices.num){
+    charBank += '0123456789';
+  }
+  if(userChoices.special){
+    charBank += '!"#$%&( )*+,-./:;<=>?@[\]^_`{|}~';
+  }
+  return charBank;
+}
+
 // gathers user choices and character list then loops through users desired length to create password
 function generatePassword() {
   var userChoices = userPrompt();
