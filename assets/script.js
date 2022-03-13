@@ -33,6 +33,23 @@ function userPrompt() {
   }
 }
 
+// gathers user choices and character list then loops through users desired length to create password
+function generatePassword() {
+  var userChoices = userPrompt();
+  var password = '';
+  if (userChoices === 4){
+    password = 'Please choose at least one character type to generate a password!'
+    
+  } else {
+    var charBank = characters(userChoices);
+    for (var i = 0; i < userChoices.len; i++){
+      var randNum = Math.floor(Math.random() * charBank.length);
+      password += charBank[randNum];
+    }
+  }
+  return password;
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
